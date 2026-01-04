@@ -257,28 +257,46 @@ if __name__ == '__main__':
     template_dir = Path(__file__).parent / 'templates'
     template_dir.mkdir(exist_ok=True)
     
+    # 支持环境变量 PORT（用于云部署，如 Railway, Render）
+    PORT = int(os.environ.get('PORT', 8080))
+    # 支持环境变量 HOST（用于云部署）
+    HOST = os.environ.get('HOST', '127.0.0.1')
+    
+    # 如果是云部署（PORT 由环境变量设置），使用 0.0.0.0
+    if os.environ.get('PORT'):
+        HOST = '0.0.0.0'
+    
     print("=" * 60)
     print("YouTube 视频 URL 抓取工具 - Web 界面")
     print("=" * 60)
     print("正在启动服务器...")
+    
+    if HOST == '0.0.0.0':
+        print(f"服务器地址：http://0.0.0.0:{PORT}")
+        print("（云部署模式，请使用云服务提供的 URL）")
+    else:
+        print(f"请在浏览器中打开：http://127.0.0.1:{PORT}")
+        print(f"或：http://localhost:{PORT}")
+    
+    print("按 Ctrl+C 停止服务器")
     print("=" * 60)
     
-    # 使用 127.0.0.1 和端口 8888，避免 macOS 安全限制
-    PORT = 8888
     try:
-        app.run(debug=False, host='127.0.0.1', port=PORT, use_reloader=False)
+        app.run(debug=False, host=HOST, port=PORT, use_reloader=False)
         print("\n✅ 服务器已启动")
-        print("请在浏览器中打开：http://127.0.0.1:8888")
-        print("或：http://localhost:8888")
+        if HOST != '0.0.0.0':
+            print(f"请在浏览器中打开：http://127.0.0.1:{PORT}")
+            print(f"或：http://localhost:{PORT}")
         print("按 Ctrl+C 停止服务器")
     except OSError as e:
         if "Address already in use" in str(e):
             PORT = 5002
-            print(f"\n⚠️  端口 8888 被占用，尝试使用端口 {PORT}...")
-            app.run(debug=False, host='127.0.0.1', port=PORT, use_reloader=False)
+            print(f"\n⚠️  端口 {PORT} 被占用，尝试使用端口 {PORT}...")
+            app.run(debug=False, host=HOST, port=PORT, use_reloader=False)
             print(f"\n✅ 服务器已启动（使用端口 {PORT}）")
-            print(f"请在浏览器中打开：http://127.0.0.1:{PORT}")
-            print(f"或：http://localhost:{PORT}")
+            if HOST != '0.0.0.0':
+                print(f"请在浏览器中打开：http://127.0.0.1:{PORT}")
+                print(f"或：http://localhost:{PORT}")
             print("按 Ctrl+C 停止服务器")
         else:
             raise

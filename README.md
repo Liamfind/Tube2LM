@@ -6,6 +6,12 @@
 
 这是一个简单易用的 YouTube 频道视频链接抓取工具，可以快速获取指定频道最新发布的 200-300 条视频链接。
 
+> **📌 重要说明**：这个工具支持多种使用方式：
+> - 🌐 **在线使用**（推荐）：使用 [GitHub Codespaces](ONLINE_USAGE.md#-推荐方式github-codespaces最简单) 在浏览器中直接使用
+> - 💻 **本地使用**：下载到本地安装运行
+> 
+> 详细说明请查看 [在线使用指南](ONLINE_USAGE.md)
+
 ## ✨ 特性
 
 - 🚀 **极速抓取**：8-10 秒即可抓取 300 条视频链接
@@ -19,25 +25,27 @@
 
 ## 🚀 快速开始
 
-### 方式一：从 GitHub 克隆（推荐）
+### 📥 第一步：从 GitHub 获取代码
+
+#### 方式一：使用 Git 克隆（推荐，方便后续更新）
 
 ```bash
 # 克隆仓库
-git clone https://github.com/YOUR_USERNAME/youtube-url-scraper.git
+git clone https://github.com/Liamfind/Tube2LM.git
 
 # 进入项目目录
-cd youtube-url-scraper
+cd Tube2LM
 ```
 
-### 方式二：直接下载
+#### 方式二：直接下载 ZIP 文件
 
-1. 访问 GitHub 仓库页面
-2. 点击 "Code" → "Download ZIP"
-3. 解压到本地目录
+1. 访问 GitHub 仓库：https://github.com/Liamfind/Tube2LM
+2. 点击绿色的 "Code" 按钮
+3. 选择 "Download ZIP"
+4. 解压 ZIP 文件到本地目录
+5. 进入解压后的 `Tube2LM` 文件夹
 
-### 安装步骤
-
-#### 第一步：安装 Python
+### 📦 第二步：安装 Python（如果还没有安装）
 
 如果你还没有安装 Python，请按照以下步骤操作：
 
@@ -54,10 +62,10 @@ cd youtube-url-scraper
 2. 下载 Python 3.8 或更高版本
 3. 安装时**务必勾选** "Add Python to PATH" 选项
 
-#### 第二步：安装依赖库
+### 📦 第三步：安装依赖库
 
-1. 打开终端（macOS）或命令提示符（Windows）
-2. 进入项目目录（如果使用方式一克隆，目录名是 `youtube-url-scraper`）
+1. 打开终端（macOS）或命令提示符/PowerShell（Windows）
+2. 进入项目目录（目录名是 `Tube2LM`）
 3. 安装所需的库：
    ```bash
    pip3 install -r requirements.txt
@@ -73,7 +81,7 @@ cd youtube-url-scraper
    pip install -r requirements.txt
    ```
 
-#### 第三步：配置频道 URL（仅命令行模式需要）
+### ⚙️ 第四步：配置频道 URL（仅命令行模式需要）
 
 1. 用文本编辑器打开 `main.py` 文件
 2. 找到这一行：
@@ -91,7 +99,7 @@ cd youtube-url-scraper
    - `https://www.youtube.com/c/频道名/videos`
    - `https://www.youtube.com/user/用户名/videos`
 
-#### 第四步：运行工具
+### 🎯 第五步：运行工具
 
 #### 方式一：使用 Web 界面（推荐，更简单）
 
@@ -141,7 +149,7 @@ cd youtube-url-scraper
 ## 📁 项目结构
 
 ```
-youtube-url-scraper/
+Tube2LM/
 ├── core/                    # 核心模块
 │   ├── __init__.py
 │   ├── config.py           # 配置文件
@@ -271,7 +279,7 @@ YOUTUBE_CONFIG = {
 4. 推送到分支 (`git push origin feature/AmazingFeature`)
 5. 开启一个 Pull Request
 
-或者直接提交 [Issue](https://github.com/YOUR_USERNAME/youtube-url-scraper/issues) 报告问题。
+或者直接提交 [Issue](https://github.com/Liamfind/Tube2LM/issues) 报告问题。
 
 ## 📝 更新日志
 
@@ -292,6 +300,8 @@ YOUTUBE_CONFIG = {
 
 ## 📚 相关文档
 
+- **[在线使用指南](ONLINE_USAGE.md)** ⭐ - 如何在浏览器中直接使用（GitHub Codespaces）
+- **[如何从 GitHub 使用](HOW_TO_USE_FROM_GITHUB.md)** - 详细说明如何从 GitHub 获取和本地使用
 - [使用说明](使用说明.md) - 详细的使用文档
 - [性能说明](性能说明.md) - 性能优化相关说明
 - [抓取方式说明](抓取方式说明.md) - 技术实现细节
@@ -305,5 +315,5 @@ YOUTUBE_CONFIG = {
 
 ---
 
-**提示**: 如果遇到任何问题，请查看 `logs/` 目录下的日志文件，或检查终端输出的错误信息。你也可以在 [GitHub Issues](https://github.com/YOUR_USERNAME/youtube-url-scraper/issues) 中报告问题。
+**提示**: 如果遇到任何问题，请查看 `logs/` 目录下的日志文件，或检查终端输出的错误信息。你也可以在 [GitHub Issues](https://github.com/Liamfind/Tube2LM/issues) 中报告问题。
 
