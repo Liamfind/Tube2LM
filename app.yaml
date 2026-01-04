@@ -1,0 +1,19 @@
+# Google App Engine 配置文件（备选方案）
+# 如果使用 App Engine 而不是 Cloud Run，可以使用此配置
+
+runtime: python311
+
+instance_class: F2
+
+automatic_scaling:
+  min_instances: 0
+  max_instances: 10
+  target_cpu_utilization: 0.6
+
+env_variables:
+  PORT: 8080
+
+handlers:
+- url: /.*
+  script: auto
+

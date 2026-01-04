@@ -54,7 +54,38 @@
 
 ## 🔄 其他在线部署方式
 
-### 方式二：部署到 Railway（推荐用于长期使用）
+### 方式二：部署到 Google Cloud Run（推荐用于长期使用）
+
+Google Cloud Run 提供免费额度，可以部署为永久在线服务。
+
+#### 快速部署步骤：
+
+1. **安装 Google Cloud SDK**
+   ```bash
+   # macOS
+   brew install --cask google-cloud-sdk
+   
+   # 或访问：https://cloud.google.com/sdk/docs/install
+   ```
+
+2. **初始化并部署**
+   ```bash
+   gcloud auth login
+   gcloud projects create tube2lm-project
+   gcloud config set project tube2lm-project
+   
+   # 构建并部署
+   gcloud builds submit --tag gcr.io/YOUR_PROJECT_ID/tube2lm
+   gcloud run deploy tube2lm \
+     --image gcr.io/YOUR_PROJECT_ID/tube2lm \
+     --platform managed \
+     --region asia-east1 \
+     --allow-unauthenticated
+   ```
+
+详细步骤请查看：[Google Cloud 部署指南](GOOGLE_CLOUD_DEPLOY.md)
+
+### 方式三：部署到 Railway（推荐用于长期使用）
 
 Railway 提供免费额度，可以部署为永久在线服务。
 
@@ -103,6 +134,7 @@ web: python3 web_app.py
 | 方案 | 难度 | 费用 | 适用场景 |
 |------|------|------|----------|
 | **GitHub Codespaces** | ⭐ 简单 | 免费（有额度） | 临时使用、测试 |
+| **Google Cloud Run** | ⭐⭐ 中等 | 免费（有额度） | 长期在线服务，推荐 |
 | **Railway** | ⭐⭐ 中等 | 免费（有额度） | 长期在线服务 |
 | **Render** | ⭐⭐ 中等 | 免费（有额度） | 长期在线服务 |
 | **Heroku** | ⭐⭐⭐ 复杂 | 免费（需信用卡） | 企业级应用 |
@@ -110,7 +142,7 @@ web: python3 web_app.py
 ## 🎯 推荐选择
 
 - **临时使用/测试**：使用 GitHub Codespaces
-- **长期在线服务**：使用 Railway 或 Render
+- **长期在线服务**：使用 **Google Cloud Run**（推荐）或 Railway/Render
 - **本地使用**：下载到本地运行
 
 ## 📝 注意事项

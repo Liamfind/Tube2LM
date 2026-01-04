@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+
+# 输出文件
+output/*.txt
+output/*.xlsx
+output/*.xls
+!output/.gitkeep
+
+# 日志文件
+logs/*.log
+!logs/.gitkeep
+
+# 上传文件
+uploads/*
+!uploads/.gitkeep
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Docker
+Dockerfile
+.dockerignore
+
+# 文档（可选，如果不需要可以保留）
+*.md
+!README.md
+
+# 其他
+*.log
+.pytest_cache/
+

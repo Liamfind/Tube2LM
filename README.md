@@ -301,6 +301,8 @@ YOUTUBE_CONFIG = {
 ## 📚 相关文档
 
 - **[在线使用指南](ONLINE_USAGE.md)** ⭐ - 如何在浏览器中直接使用（GitHub Codespaces）
+- **[Google Cloud 部署指南](GOOGLE_CLOUD_DEPLOY.md)** ☁️ - 部署到 Google Cloud Run（永久在线服务）
+- **[Google Cloud 快速部署](QUICK_DEPLOY_GCP.md)** ⚡ - 5 分钟快速部署到 Google Cloud
 - **[如何从 GitHub 使用](HOW_TO_USE_FROM_GITHUB.md)** - 详细说明如何从 GitHub 获取和本地使用
 - [使用说明](使用说明.md) - 详细的使用文档
 - [性能说明](性能说明.md) - 性能优化相关说明
